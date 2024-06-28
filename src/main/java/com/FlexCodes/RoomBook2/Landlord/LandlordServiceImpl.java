@@ -3,11 +3,12 @@ package com.FlexCodes.RoomBook2.Landlord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class LandlordServiceImpl implements LandlordService{
-    private List<Landlord>Landlords=new ArrayList<>();
+   // private List<Landlord>Landlords=new ArrayList<>();
     private LandlordRepo landlordRepo;
     @Autowired
 
@@ -17,12 +18,12 @@ public class LandlordServiceImpl implements LandlordService{
 
     @Override
     public List<Landlord> findAll() {
-        return Landlords;
+       return landlordRepo.findAll();
     }
 
     @Override
     public void save(Landlord landlord) {
-        Landlords.add(landlord);
+        landlordRepo.save(landlord);
 
     }
 
@@ -32,8 +33,8 @@ public class LandlordServiceImpl implements LandlordService{
     }
 
     @Override
-    public Landlord findById(Long Id) {
-        return null;
+    public Optional<Landlord> findById(Long Id) {
+       return landlordRepo.findById(Id);
     }
 
     public LandlordRepo getLandlordRepo() {
