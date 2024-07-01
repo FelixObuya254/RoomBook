@@ -12,4 +12,6 @@ public interface HostelService {
    Optional<Hostel> findById(Long Id);
     String findByName();
     List<Hostel>finaAll();
+    boolean deleteById(Long Id);
+    boolean UpdateHostel(Long Id, Hostel Updated);
 }
