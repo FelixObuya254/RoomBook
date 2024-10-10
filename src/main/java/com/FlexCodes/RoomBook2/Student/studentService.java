@@ -6,9 +6,10 @@ import java.util.Optional;
 public interface studentService {
     void createStudent(student student);
     List<student>listAll();
-    void deleteStudent(Long Id);
-    Optional<student> findById(Long Id);
+    boolean deleteById(Long id);
+    Optional<student> findById(Long id);
     student findByRegNo(String RegNo);
+    boolean UpdateStudent(Long Id, student Updated);
 
 
 }

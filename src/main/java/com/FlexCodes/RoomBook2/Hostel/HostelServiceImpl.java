@@ -8,11 +8,16 @@ import java.util.Optional;
 @Service
 
 public class HostelServiceImpl implements HostelService {
-   private HostelRepo hostelRepo;
+   private final HostelRepo hostelRepo;
     private Hostel hostel;
 
     public HostelServiceImpl(HostelRepo hostelRepo) {
         this.hostelRepo = hostelRepo;
+    }
+
+    @Override
+    public Hostel findByName(String HostelName) {
+        return null;
     }
 
     @Override
@@ -26,10 +31,6 @@ public class HostelServiceImpl implements HostelService {
     }
 
 
-    @Override
-    public String findByName() {
-        return "";
-    }
 
 
     @Override
@@ -63,5 +64,16 @@ public class HostelServiceImpl implements HostelService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean deleteByName(Hostel hostelName) {
+        try {
+            hostelRepo.delete(hostelName);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 }

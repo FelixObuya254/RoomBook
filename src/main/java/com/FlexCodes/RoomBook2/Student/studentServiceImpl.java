@@ -27,7 +27,17 @@ public class studentServiceImpl implements studentService{
     }
 
     @Override
-    public void deleteStudent(Long Id) {
+    public boolean deleteById(Long id) {
+        try{
+            studentRepo.deleteById(id);
+            return true;
+        }
+
+        catch (Exception e){
+            return false;
+
+        }
+
 
     }
 
@@ -40,6 +50,21 @@ public class studentServiceImpl implements studentService{
     @Override
     public student findByRegNo(String RegNo) {
         return null;
+    }
+
+    @Override
+    public boolean UpdateStudent(Long Id, student Updated) {
+        Optional<student>studentOptional=studentRepo.findById(Id);
+        if(studentOptional.isPresent()){
+            student student=studentOptional.get();
+            student.setFirstname(Updated.getFirstname());
+            student.setLastName(Updated.getLastName());
+            student.setEmail(Updated.getEmail());
+            student.setPhoneNo(Updated.getPhoneNo());
+            student.setRegNo(Updated.getRegNo());
+            studentRepo.save(student);
+        }
+        return false;
     }
 
 

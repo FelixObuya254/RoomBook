@@ -19,50 +19,46 @@ public class Landlord {
             updatable = false
     )
 
-    private long id;
+    private Long Id;
     @Column(
-            name = "FirstName",
+
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String FirstName;
     @Column(
-            name = "LastName",
+
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String LastName;
     @Column(
-            name = "IdNo",
+
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String IdNo;
     @Column(
-            name = "PhoneNo",
+
             nullable = false,
             columnDefinition = "TEXT"
     )
     private String PhoneNo;
     @Column(
-            name = "Email",
             nullable = false
 
     )
     private String Email;
-    @Column(
-            name = "photo",
-            nullable = false
-    )
+
     private String photoUrl;
 
 
     public long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getFirstName() {
@@ -115,7 +111,7 @@ public class Landlord {
 
     public Landlord(long id, String firstName, String lastName, String idNo,
                     String phoneNo, String email, String photoUrl) {
-        this.id = id;
+        this.Id = id;
         FirstName = firstName;
         LastName = lastName;
         IdNo = idNo;
@@ -130,7 +126,7 @@ public class Landlord {
     @Override
     public String toString() {
         return "Landlord{" +
-                "id=" + id +
+                "id=" + Id +
                 ", FirstName='" + FirstName + '\'' +
                 ", LastName='" + LastName + '\'' +
                 ", IdNo='" + IdNo + '\'' +

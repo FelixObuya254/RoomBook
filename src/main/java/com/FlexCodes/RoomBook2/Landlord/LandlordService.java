@@ -10,7 +10,9 @@ import java.util.Optional;
 public interface LandlordService {
     List<Landlord>findAll();
     void save(Landlord landlord);
-    void deleteById(Long Id);
+    boolean deleteById(Long Id);
     Optional<Landlord> findById(Long Id);
+    boolean UpdateLandlord(Long Id, Landlord Updated);
+    List<Landlord> findBy(String FirstName);
 }
 
