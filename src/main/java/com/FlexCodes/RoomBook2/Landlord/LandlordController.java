@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping
@@ -34,8 +33,9 @@ public class LandlordController {
 
     @GetMapping("/Landlord/{FirstName}")
     public ResponseEntity<Landlord> getLandlord(@PathVariable String FirstName) {
-        Optional<Landlord> landlord = landlordService.findBy(FirstName);
-        return Optional<Landlord>
+        List<Landlord> landlord = landlordService.findBy(FirstName);
+        ResponseEntity<Landlord> landlord1 = (ResponseEntity<Landlord>) List.of(landlord);
+        return landlord1;
 
 
     }
