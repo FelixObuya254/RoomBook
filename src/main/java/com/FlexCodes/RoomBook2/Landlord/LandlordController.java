@@ -31,11 +31,13 @@ public class LandlordController {
 
     }
 
-    @GetMapping("/Landlord/{FirstName}")
+    @GetMapping("/Landlord/{Search}")
     public ResponseEntity<Landlord> getLandlord(@PathVariable String FirstName) {
         List<Landlord> landlord = landlordService.findBy(FirstName);
-        ResponseEntity<Landlord> landlord1 = (ResponseEntity<Landlord>) List.of(landlord);
-        return landlord1;
+        if(landlord.isEmpty()){
+            return new  ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else return new ResponseEntity(landlord, HttpStatus.OK);
+
 
 
     }

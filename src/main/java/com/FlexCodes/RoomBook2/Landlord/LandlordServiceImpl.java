@@ -1,6 +1,5 @@
 package com.FlexCodes.RoomBook2.Landlord;
 
-import com.FlexCodes.RoomBook2.Hostel.Hostel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,8 +63,7 @@ public class LandlordServiceImpl implements LandlordService {
 
     @Override
     public List <Landlord> findBy(String FirstName) {
-
-      return LandlordRepo.findBy(FirstName);
+        return LandlordRepo.findBy(FirstName);
     }
 
 
